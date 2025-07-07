@@ -1,51 +1,66 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>EM-EE MINIGAMES</title>
-    <style>
-      body {
-        background-color: #000; /* Black background for contrast */
-        color: white;
-        font-family: Arial, sans-serif;
-        text-align: center;
-        margin: 0;
-        padding: 0;
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EM-EE Minigames - Welcome</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: black;
+      color: white;
+      text-align: center;
+    }
+    h1 {
+      margin-top: 40px;
+      background: linear-gradient(to right, pink, orange);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 48px;
+    }
+    p {
+      font-size: 20px;
+    }
+    input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 20px;
+      width: 250px;
+    }
+    button {
+      padding: 10px 20px;
+      margin-top: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>EM-EE MINIGAMES</h1>
+  <p>OFFICIAL WEBSITE</p>
+  <p>What should we call you?</p>
+  <input type="text" id="username" placeholder="Enter your name here" />
+  <br>
+  <button onclick="saveName()">Submit</button>
+
+  <script>
+    // Check if name already exists
+    const existingName = localStorage.getItem("playerName");
+    if (existingName) {
+      // Redirect to home page immediately
+      window.location.href = "home.html";
+    }
+
+    function saveName() {
+      const name = document.getElementById("username").value;
+      if (name) {
+        localStorage.setItem("playerName", name);
+        window.location.href = "home.html";
+      } else {
+        alert("Please enter your name first!");
       }
-      h1 {
-        font-size: 3em;
-        font-weight: bold;
-        background: linear-gradient(45deg, #ff00ff, #ffff00); /* Pink to yellow gradient */
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        margin-top: 100px;
-      }
-      h2 {
-        font-size: 1.5em;
-        color: white;
-        margin-top: 10px;
-      }
-      .button {
-        display: inline-block;
-        margin-top: 40px;
-        padding: 15px 30px;
-        font-size: 1.2em;
-        font-weight: bold;
-        color: #000;
-        background-color: #fff;
-        border: none;
-        border-radius: 8px;
-        text-decoration: none;
-        transition: background-color 0.3s, color 0.3s;
-      }
-      .button:hover {
-        background-color: #ff00ff;
-        color: #fff;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>EM-EE MINIGAMES</h1>
-    <h2>OFFICIAL WEBSITE</h2>
-    <a class="button" href="home.html">GO TO HOME PAGE</a>
-  </body>
+    }
+  </script>
+</body>
 </html>
