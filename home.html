@@ -33,6 +33,23 @@
     .tab:hover {
       color: pink;
     }
+    .content {
+      margin: 40px auto;
+      max-width: 800px;
+      font-size: 18px;
+      line-height: 1.6;
+      text-align: left;
+    }
+    .bold-text {
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    button {
+      padding: 8px 15px;
+      margin-top: 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -45,12 +62,31 @@
     <span class="tab">Contact</span>
   </nav>
 
+  <div class="content" id="introText"></div>
+
+  <button onclick="resetName()">Reset Name</button>
+
   <script>
     const name = localStorage.getItem("playerName");
     if (name) {
       document.getElementById("welcome").innerText = `Welcome to the Home Page, ${name}!`;
+
+      document.getElementById("introText").innerHTML = `
+        Hey there ${name}! Welcome to the official EM-EE Minigames website created by UniVerze_Br4wnie [THE DEVELOPER OF THE GAME].
+        I would like to show you how to use the website, this page doesn't consist of 'HOW TO PLAY THE GAME' — please click the ABOUT TAB at the top for the game's information.
+        <p class="bold-text">
+          So this website is all about EM-EE Minigames. In the 'HOME TAB' you see all this, in 'LINKS TAB' you will see the links connected to our socials such as Roblox profile, Discord server, YouTube channel, Roblox models, and more!
+          The 'ABOUT PAGE' tells you how to play the game [BECAUSE IT HAS MUCH MORE THAN JUST PLAYING THE MINIGAMES].
+          Last but not the least the 'CONTACT TAB' where you can send us bug reports and stuff in the game [I DO NOT ACCEPT USELESS MESSAGES, PLEASE I REQUEST YOU TO JUST DO USEFUL AND IMPORTANT MESSAGES].
+          Hope you will like this website, we will add more UPDATES and inform you in our Discord server! STAY TUNED!!
+        </p>
+      `;
     } else {
-      // If somehow they didn't set a name, redirect back to index
+      window.location.href = "index.html";
+    }
+
+    function resetName() {
+      localStorage.removeItem("playerName");
       window.location.href = "index.html";
     }
   </script>
