@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About - EM-EE Minigames</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #0e0e0e;
+      color: white;
+      text-align: center;
+    }
+
+    .navbar {
+      background-color: #1c1c1c;
+      padding: 15px;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      border-bottom: 2px solid #333;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .navbar a:hover {
+      background-color: #444;
+    }
+
+    h1 {
+      margin-top: 40px;
+      font-size: 26px;
+      background: linear-gradient(45deg, #ff00cc, #ffff00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .content-box {
+      background-color: #1c1c1c;
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 0, 200, 0.3);
+      text-align: left;
+    }
+
+    .content-box b {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+  </style>
+  <script>
+    window.onload = () => {
+      const username = localStorage.getItem("username") || "Guest";
+      document.getElementById("about-text").innerHTML = 
+        `Sup ${username}! Here's a guide on how to play em-ee minigames, this game is not just about playing minigames for fun but actually completing the games and getting EM-EE Bit Coins, the currency in this game have less value for now but when this game blows up I will make FREE UGCs in exchange you will give EM-EE Bit Coins[CURRENCY]. Only the fighting game is for fun [IT DOES NOT GIVE YOU ANY SORT OF EM-EE BIT COINS!] Also the Music-Showcase isn't a minigame is just to showcase the OSTs of the game[WHICH I HAVE MADE ON MY OWN!] I hope you enjoy the game, thanks!`;
+    };
+  </script>
+</head>
+<body>
+
+  <div class="navbar">
+    <a href="home.html">Home</a>
+    <a href="links.html">Links</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <h1>HOW TO PLAY EM-EE MINIGAMES' GUIDE HERE!</h1>
+
+  <div class="content-box">
+    <b>ABOUT:</b>
+    <p id="about-text"></p>
+  </div>
+
+</body>
+</html>
