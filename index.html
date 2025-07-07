@@ -1,65 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>EM-EE Minigames - Welcome</title>
+  <title>EM-EE MINIGAMES</title>
   <style>
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: black;
+      background-color: #121212;
       color: white;
+      font-family: Arial, sans-serif;
       text-align: center;
+      padding: 20px;
     }
     h1 {
-      margin-top: 40px;
-      background: linear-gradient(to right, pink, orange);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-size: 48px;
+      color: white;
+      font-size: 36px;
+      font-weight: bold;
     }
     p {
       font-size: 20px;
     }
     input[type="text"] {
       padding: 10px;
-      font-size: 16px;
       margin-top: 20px;
-      width: 250px;
+      border-radius: 5px;
+      border: none;
+      width: 200px;
     }
     button {
+      display: block;
+      margin: 20px auto;
       padding: 10px 20px;
-      margin-top: 10px;
-      font-size: 16px;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      background-color: #444;
+      color: white;
       cursor: pointer;
+    }
+    button:hover {
+      background-color: #666;
     }
   </style>
 </head>
 <body>
   <h1>EM-EE MINIGAMES</h1>
   <p>OFFICIAL WEBSITE</p>
-  <p>What should we call you?</p>
-  <input type="text" id="username" placeholder="Enter your name here" />
-  <br>
-  <button onclick="saveName()">Submit</button>
+  <input type="text" id="username" placeholder="What should we call you?">
+  <button onclick="goToHome()">GO TO HOME PAGE</button>
 
   <script>
-    // Check if name already exists
-    const existingName = localStorage.getItem("playerName");
-    if (existingName) {
-      // Redirect to home page immediately
-      window.location.href = "home.html";
-    }
-
-    function saveName() {
-      const name = document.getElementById("username").value;
-      if (name) {
-        localStorage.setItem("playerName", name);
+    function goToHome() {
+      const username = document.getElementById("username").value;
+      if (username.trim() !== "") {
+        localStorage.setItem("username", username);
         window.location.href = "home.html";
       } else {
         alert("Please enter your name first!");
       }
+    }
+
+    // If name already saved, skip index
+    if (localStorage.getItem("username")) {
+      window.location.href = "home.html";
     }
   </script>
 </body>
