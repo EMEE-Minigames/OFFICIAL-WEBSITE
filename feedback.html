@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Feedback - EM-EE Minigames</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #0e0e0e;
+      color: white;
+      text-align: center;
+    }
+
+    .navbar {
+      background-color: #1c1c1c;
+      padding: 15px;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      border-bottom: 2px solid #333;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .navbar a:hover {
+      background-color: #444;
+    }
+
+    h1 {
+      margin-top: 40px;
+      font-size: 26px;
+      background: linear-gradient(45deg, #ff00cc, #ffff00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .form-box {
+      background-color: #1c1c1c;
+      max-width: 500px;
+      margin: 40px auto;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 0, 200, 0.3);
+      text-align: left;
+    }
+
+    .form-box label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .form-box input, .form-box textarea {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    .form-box button {
+      background-color: #ff00cc;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .form-box button:hover {
+      background-color: #e600b8;
+    }
+  </style>
+  <script>
+    function sendEmail() {
+      const subject = document.getElementById("subject").value;
+      const message = document.getElementById("message").value;
+      const userEmail = document.getElementById("userEmail").value;
+
+      let body = encodeURIComponent(message + "\n\nFrom: " + userEmail);
+      window.location.href = `mailto:ketsuiclan@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+
+      return false; // prevent actual form submit
+    }
+  </script>
+</head>
+<body>
+
+  <div class="navbar">
+    <a href="home.html">Home</a>
+    <a href="links.html">Links</a>
+    <a href="about.html">About</a>
+    <a href="feedback.html">Contact</a>
+  </div>
+
+  <h1>CONTACT / FEEDBACK</h1>
+
+  <div class="form-box">
+    <form onsubmit="return sendEmail();">
+      <label for="subject">Subject</label>
+      <input type="text" id="subject" name="subject" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <label for="userEmail">Your Email (optional)</label>
+      <input type="email" id="userEmail" name="userEmail">
+
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+
+</body>
+</html>
